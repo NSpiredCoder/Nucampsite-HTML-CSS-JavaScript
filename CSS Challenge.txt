@@ -1,0 +1,46 @@
+Challenge Question: CSS
+
+Question #1: 
+Aside from color names and hex color codes, RGBA and HSL are another way to encode a CSS color value.
+
+RGBA color values:
+em { color: rgb(255,0,0) }      /* integer range 0 - 255 */
+em { color: rgba(255,0,0,1)     /* the same, with explicit opacity of 1 */
+em { color: rgb(100%,0%,0%) }   /* float range 0.0% - 100.0% */
+em { color: rgba(100%,0%,0%,1) } /* the same, with explicit opacity of 1 */
+
+HSL color values:
+* { color: hsl(0, 100%, 50%) }   /* red */
+* { color: hsl(120, 100%, 50%) } /* lime */
+* { color: hsl(120, 100%, 25%) } /* dark green */
+* { color: hsl(120, 100%, 75%) } /* light green */
+* { color: hsl(120, 75%, 75%) }  /* pastel green, and so on */
+
+Question #2:
+Hex color codes typically have 6 characters that follow the #, with each set of 2 representing R (red), G (green), or B (blue), such as #ffffff. However, these two example hex codes are also valid:
+#fff
+#ffffff44
+Why is this, and what do the two hex codes above mean?
+
+
+
+Question #3
+
+What does this declaration do to an element? 
+
+margin: 10px 20px 5px;
+
+Question #4
+Two other common units for CSS lengths, aside from px, are em and rem. Briefly describe the meaning of each. 
+
+
+Question #5
+How do you use the list-style property? Give an example to illustrate.
+
+
+Question #6
+What is a pseudo-element selector? This is not the same as a pseudo-class selector. Give an example to illustrate.
+
+
+Question #7
+What is the !important rule in CSS, and why should you generally avoid it?

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Matching Game</title>
+    <style type="text/css">
+
+        img {
+            position: absolute;
+        }
+
+        div {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background-color: lightskyblue;
+        }
+
+        #rightSide {
+            position: absolute;
+            left: 500px;
+            border-left: 1px solid;
+        }
+
+    </style>
+</head>
+<body onload="generateFaces()">
+    <h1>Matching Game</h1>
+    <p>Select the smiley face in the left side that doesn't exist in the right side.</p>
+    <br>
+    Designed by Steve Len
+    <br>
+    May 10, 2020
+
+    <div id="leftSide"></div>     
+    <div id="rightSide"></div>
+
+<script>
+    
+    let numberOfFaces = 5;
+    const theLeftSide = document.getElementById("leftSide");
+    const theRightSide = document.getElementById("rightSide");
+    const theBody = document.getElementsByName("body")[0];
+    
+    // generateFaces function to generate smiley emoji. 
+    function generateFaces(){
+        for (let i=0; i < numberOfFaces; i++){
+            let face = document.createElement("img");
+            console.log("face images created");
+            face.src = ".../../images/smile.png"
+
+            let randomTop = Math.floor(Math.random() * 400);
+            let randomLeft = Math.floor(Math.random() * 400);
+
+            face.style.top = randomTop + "px";
+            face.style.left = randomLeft + "px";
+            theLeftSide.appendChild(face);
+        }
+        // create clone element for left side and append to right side div.
+        leftSideImages = theLeftSide.cloneNode(true);
+        leftSideImages.removeChild(leftSideImages.lastChild);
+        theRightSide.appendChild(leftSideImages);
+        event.stopPropagation();
+        theLeftSide.lastChild.addEventListener("click",nextLevel);
+        document.body.addEventListener("click",gameOver);
+    }
+
+    // next level function.
+    function nextLevel(){
+        
+        numberOfFaces +=5;
+
+        while(theLeftSide.lastChild) {
+            theLeftSide.removeChild(theLeftSide.lastChild);
+        
+        while(theRightSide.lastChild){
+            theRightSide.removeChild(theRightSide.lastChild);
+        }
+        }
+        generateFaces();
+    }
+
+    // game over function.
+
+    function gameOver(){
+        alert("You picked the wrong simley. Game over!");
+        document.body.removeEventListener("click", gameOver);
+        theLeftSide.lastChild.removeEventListener("click", nextLevel);
+    }
+</script>
+</body>
+</html>

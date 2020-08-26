@@ -1,0 +1,30 @@
+<h1>Code Challenge: Fix This Form</h1>
+<section>
+    <form action="https://learn.nucamp.co/show_everything.php" method="post">
+        <div>
+            <!--Making a change attribute id to name instead; select tag need name attribute-->
+            <label for="travel">Preferred method of travel:</label>
+            <select id="travel" name="travel">
+                <option>Choose ... </option>
+                <option value="bike">Bike</option>
+                <option value="car">Car</option>
+                <option value="train">Train</option>
+            </select>
+        </div>
+        <div>
+             <!--Deleted required-->
+            <!-- adding attribute for in <label for=""> for click focus--> 
+            <!--Making a change value of attribute name following on category; from luxury to budget instead-->
+            Travel Budget:
+            <input type="radio" id="frugal" name="budget" value="frugal"/>
+            <label for="frugal">frugal</label>
+            <input type="radio" id="moderate" name="budget" value="moderate" />
+            <label for="moderate">Moderate</label>
+            <input type="radio"id="luxury" name="budget" value="luxury" />
+            <label for="luxury">Luxury</label>
+        </div>
+        <div>
+            <input type="submit" value="Go!" />
+        </div>   
+    </form>
+</section>

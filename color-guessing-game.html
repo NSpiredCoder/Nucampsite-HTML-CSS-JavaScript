@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Color Guessing Game</title>
+        <meta charset="utf-8">
+    </head>
+    <body bgcolor = blue>
+        <div style="text-align: center"><button type="button" style="background-color:black;color:white;width:150px; height:40px;" onClick="runGame()">Start Game</button>
+        </div>
+        <script>
+            const COLORS_ARRAY = [ "silver", "gray", "black", "maroon", "yellow", "olive", "lime", "green", "aqua", "teal", "orange", "gold"];
+            COLORS_ARRAY.sort();
+            let correct = false;
+            let guess = "";
+            function runGame()
+            {
+                const targetIndex = Math.floor(Math.random()*COLORS_ARRAY.length);
+                const target =COLORS_ARRAY[targetIndex];
+                console.log("targetIndex = " + targetIndex + "\n target ="+ target);
+                do { 
+                    guess = prompt('I am thinking of one of these colors:\n\n' + COLORS_ARRAY + '\n\nWhat color am I thinking of?\n');
+                  if(guess===null || guess==="")
+                    {
+                      console.log("cancel = " + guess);
+                      alert("Your game has been aborted.");
+                      return;
+                    }
+                    correct = checkGuess(guess,target);
+                }
+                while(!correct);
+                    alert("Your game is finished - GREAT JOB!");
+                    document.body.style.background = guess;
+                
+                
+            }
+        function checkGuess(guess,target){
+            let answer = false;
+            if(!COLORS_ARRAY.includes(guess))
+            {
+                alert("Sorry, I don\'t recognize your color.  Try again");
+            }
+            else if (guess < target)
+            {
+                alert("Hint: Your color is alphabetically lower that mine. Try again.");
+            }
+            else if (guess > target)
+            {
+                alert("Hint: Your color is alphabetically higher than mine. Try again");
+            }
+            else
+            {
+                alert("Congratulation, you picked the correct color!");
+                answer = true;
+            }
+            return answer;
+    }
+        </script>
+    </body>
+</html>

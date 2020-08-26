@@ -1,0 +1,44 @@
+
+            const COLORS_ARRAY = ["blue", "black", "red", "green", "purple", "pink", "green"];
+            let correct = false;
+            let guess = "";
+            function runGame()
+            {
+                const targetIndex = Math.floor(Math.random()*COLORS_ARRAY.length);
+                const target =COLORS_ARRAY[targetIndex];
+                console.log("targetIndex = " + targetIndex + "\n target ="+ target);
+                do { 
+                    guess = prompt('I am thinking of one of these colors:\n\n' + COLORS_ARRAY + '\n\nWhatcolor am I thinking of?\n'); // you type COLORS_ARRAY"S"
+                  if(guess===null || guess==="") // you put ; at the end
+                    {
+                      console.log("cancel = " + guess);
+                      alert("Your game has been aborted.");
+                      return;
+                    }
+                    correct = checkGuess(guess,target);
+                }
+                while(!correct);
+                    alert("Your game is finihed - GREAT JOB!");
+                    document.body.style.background = guess;
+            }
+        function checkGuess(guess,target){
+            let answer = false;
+            if(!COLORS_ARRAY.includes(guess)) // forget !
+            {
+                alert("Sorry, I don\'t recognize your color.  Try again");
+            }
+            else if (guess < target) // traget
+            {
+                alert("Hint: Your color is alphabetically lower that mine. Try again.");
+            }
+            else if (guess > target)
+            {
+                alert("Hint: Your color is alphabetically higher than mine. Try again");
+            }
+            else
+            {
+                alert("Congratulation, you picked the correct color");
+                answer = true;
+            }
+            return answer;
+    }

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JavaScript Guessing Color</title>
+</head>
+<body onload = "doGame()">
+
+<script>
+
+var colors = ["Azure", "Black", "Chocolate", "Cyan", "Grey", "Green", "Ivory", "Lavender", "Navy", "Olive", "Turquoise", "Yellow"];
+var target;
+var choice;
+var numOfGame = 0;
+var finished = false;
+
+
+function doGame(){
+    var randNum = Math.floor(Math.random() * colors.length);
+    target = colors[randNum];
+    alert(colors[randNum]);
+
+    while (!finished) {
+        choice = prompt("Please, guess the color. \n\n Possible colors are: " + colors + ".\n\n" + "What is the color?");
+        numOfGame++;
+        finished = checkGuess();
+    }
+}
+
+function checkGuess() {
+    if  ( colors.indexOf(choice) === -1) {
+        alert("I don’t recognize that color!");
+        return false;
+    } else  if (choice > target) {
+        alert("Your color is alphabetically higher than mine. Please, try again");
+        return false;
+    } else if (choice < target) {
+        alert("Your color is alphabetically lower than mine. Please, try again");
+        return false; 
+    } else {
+		alert("You won! Number of games played is " + numOfGame);
+		document.body.style.backgroundColor = target;
+        return true;
+        document.body.style.backgroundColor = target;
+    }
+}
+</script>
+</body>
+</html>
